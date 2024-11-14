@@ -7,8 +7,6 @@
     "Merge": true,
     "Validate": true,
     "CustomResources": [
-      "Synapxe.FusionPortal.Model.Education",
-      "Synapxe.FusionPortal.Data.Inventory",
       "Synapxe.FusionPortal.Data.KtloTask"
     ],
     "OpenTelemetryPrometheusMetrics": {
@@ -40,9 +38,6 @@
         "ConnectionString": "fusiondb",
         "AllowedInteractions": [ "Create", "Read", "Vread", "Update", "Delete", "SearchType", "OperationType", "OperationInstance" ],
         "AcceptedTypes": [
-          "Education",
-          "Inventory",
-          "Appointment",
           "KtloTask"
         ]
       }

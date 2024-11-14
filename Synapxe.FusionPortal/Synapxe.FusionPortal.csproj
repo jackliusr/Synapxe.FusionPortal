@@ -33,4 +33,8 @@
     <ItemGroup>
       <AdditionalFiles Remove="Conformance\KltoTask.StructureDefinition.json" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Data\SlimDocumentReferenceEntity.cs" />
+    </ItemGroup>
 </Project>

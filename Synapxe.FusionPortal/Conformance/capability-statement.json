@@ -14,49 +14,28 @@
       "mode": "server",
       "resource": [
         {
+          "type": "KtloActivity",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "versioning": "versioned"
+        },
+        {
           "type": "KtloTask",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "vread"
-            },
-            {
-              "code": "create"
-            },
-            {
-              "code": "update"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "versioning": "versioned"
-        },
-        {
-          "type": "KltoTask",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "vread"
-            },
-            {
-              "code": "create"
-            },
-            {
-              "code": "update"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "versioning": "versioned"
-        },
-        {
-          "type": "TaskTracker",
           "interaction": [
             {
               "code": "read"
@@ -125,65 +104,6 @@
             }
           ],
           "versioning": "no-version"
-        },
-        
-        {
-          "type": "Education",
-          "interaction": [
-            {
-              "code": "read",
-              "documentation": "Retrieves an education resource by id."
-            },
-            {
-              "code": "vread",
-              "documentation": "Retrieves an education resource by id and version."
-            },
-            {
-              "code": "update",
-              "documentation": "Updates an education resource."
-            },
-            {
-              "code": "create",
-              "documentation": "Cretes an education resource."
-            },
-            {
-              "code": "search-type",
-              "documentation": "Searches education resources."
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "institute",
-              "definition": "http://sypnapxe.sg/fhir/SearchParameter/Education-institute"
-            }
-          ],
-          "versioning": "versioned"
-        },
-        {
-          "type": "Inventory",
-          "interaction": [
-            {
-              "code": "read",
-              "documentation": "Retrieves an inventory resource by id."
-            },
-            {
-              "code": "vread",
-              "documentation": "Retrieves an inventory resource by id and version."
-            },
-            {
-              "code": "update",
-              "documentation": "Updates an inventory resource."
-            },
-            {
-              "code": "create",
-              "documentation": "Cretes an inventory resource."
-            },
-            {
-              "code": "search-type",
-              "documentation": "Searches inventory resources."
-            }
-          ],
-          "versioning": "versioned"
         }
       ]
     }
