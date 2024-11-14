@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ProjectGuid>{CAB8E33F-67F7-4F6E-8FFF-D3463C8FA99C}</ProjectGuid>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+		<NoWarn>NU1605</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="Synapxe.FusionPortal.IntegrationTests" />
+        <ProjectReference Include="..\Synapxe.FusionPortal.Model\Synapxe.FusionPortal.Model.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Ihis.FhirEngine.Data.Extensions.AutoMapper" Version="4.2.0" />
+        <PackageReference Include="Ihis.FhirEngine.Data.Models" Version="4.2.0" />
+        <PackageReference Include="Ihis.FhirEngine.Msbuild.Tasks" Version="4.2.0" />
+        <PackageReference Include="Ihis.FhirEngine.Data.Models.R5" Version="4.2.0" />
+        <PackageReference Include="Ihis.FhirEngine.Data.Relational.PostgreSQL" Version="4.2.0" />
+    
+        <PackageReference Include="Ihis.FhirEngine.Extensions.OpenTelemetry" Version="4.2.0" />
+        <PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.AuditLogging.Serilog" Version="4.2.0" />
+        <PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.Swashbuckle" Version="4.2.0" />
+        <PackageReference Include="Ihis.FhirEngine.WebApi.R5" Version="4.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="Conformance/*.StructureDefinition.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Remove="Conformance\KltoTask.StructureDefinition.json" />
+    </ItemGroup>
+</Project>

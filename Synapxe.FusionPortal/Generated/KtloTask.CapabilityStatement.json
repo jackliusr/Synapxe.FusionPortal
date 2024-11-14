@@ -1,0 +1,24 @@
+       
+        {
+          "type": "KtloTask",
+          //"profile": "StructureDefinition/KtloTask",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "versioning": "versioned",
+        }
+

@@ -1,0 +1,51 @@
+{
+  "EnableHandlerAutoRegistration": true,
+  "PublicConformanceResources": true,
+  "UseFhirController": false,
+  "SystemPlugins": {
+    "Metadata": "Conformance",
+    "Merge": true,
+    "Validate": true,
+    "CustomResources": [
+      "Synapxe.FusionPortal.Model.Education",
+      "Synapxe.FusionPortal.Data.Inventory",
+      "Synapxe.FusionPortal.Data.KtloTask"
+    ],
+    "OpenTelemetryPrometheusMetrics": {
+      "AspNetCoreInstrumentation": true
+    },
+    "OpenTelemetryTracing": {
+      "ServiceName": true,
+      "AspNetCoreInstrumentation": true,
+      "SqlClientInstrumentation": {
+        "SetDbStatementForText": true
+      },
+      "OtlpExporter": true
+    },
+    "Authentication": "Synapxe.FusionPortal.Security.HeadersAuthenticationHandler",
+    "ResourceRepositoryCache": {
+      "GlobalExpiration": "01:00:00",
+      "AllowCacheDisable": true
+    }
+  },
+  "Handlers": {
+    "Repository": {
+      "FhirDataStore<@Relational>": {
+        "ContextType": "Synapxe.FusionPortal.Data.FhirEntityDbContext",
+        "UsePostgreSQLRelationalModels": {
+          "AutoCreateTables": true
+        },
+        "UseAutoMapperDataMapper": true,
+        "IncludeStandardSearchParams": true,
+        "ConnectionString": "fusiondb",
+        "AllowedInteractions": [ "Create", "Read", "Vread", "Update", "Delete", "SearchType", "OperationType", "OperationInstance" ],
+        "AcceptedTypes": [
+          "Education",
+          "Inventory",
+          "Appointment",
+          "KtloTask"
+        ]
+      }
+    }
+  }
+}
