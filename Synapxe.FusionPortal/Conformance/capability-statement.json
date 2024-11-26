@@ -14,7 +14,7 @@
       "mode": "server",
       "resource": [
         {
-          "type": "KtloActivity",
+          "type": "Application",
           "interaction": [
             {
               "code": "read"
@@ -35,7 +35,49 @@
           "versioning": "versioned"
         },
         {
-          "type": "KtloTask",
+          "type": "Activity",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "versioning": "versioned"
+        },
+        {
+          "type": "TestActivity",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "versioning": "versioned"
+        },
+        {
+          "type": "Inventory",
           "interaction": [
             {
               "code": "read"

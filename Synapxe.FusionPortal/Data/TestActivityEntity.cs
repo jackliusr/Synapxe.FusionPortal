@@ -5,8 +5,8 @@ namespace Synapxe.FusionPortal.Data;
 
 [CustomFhirResource]
 
-[Hl7.Fhir.Introspection.FhirType("KtloActivity", "http://hl7.org/fhir/StructureDefinition/KtloActivity", IsResource = true)]
-public class KtloActivityEntity: ResourceEntity
+[Hl7.Fhir.Introspection.FhirType("KtloActivity", "http://hl7.org/fhir/StructureDefinition/TestActivity", IsResource = true)]
+public class TestActivityEntity: ResourceEntity
 {
     public IdentifierEntity? Identifier { get; set; }
 

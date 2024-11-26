@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
@@ -31,10 +31,25 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Remove="Conformance\KltoTask.StructureDefinition.json" />
+      <AdditionalFiles Remove="Conformance\Activity.StructureDefinition.json" />
+      <AdditionalFiles Remove="Conformance\Application.StructureDefinition.json" />
+      <AdditionalFiles Remove="Conformance\Inventory.StructureDefinition.json" />
+      <AdditionalFiles Remove="Conformance\TestActivity.StructureDefinition.json" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="Data\SlimDocumentReferenceEntity.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Conformance\Education.StructureDefinition.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="Conformance\Activity.StructureDefinition.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 </Project>

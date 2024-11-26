@@ -1,0 +1,572 @@
+
+{"resourceType": "StructureDefinition",
+  "id": "Application",
+  "url": "http://hl7.org/fhir/StructureDefinition/Application",
+  "version": "0.1",
+  "name": "Application",
+  "status": "draft",
+  "publisher": "Synapxe",
+  "copyright": "Copyright (C) 2024 Synapxe",
+  "fhirVersion": "4.3.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Application",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DomainResource",
+  "derivation": "specialization",
+  "differential": {
+      "element": [
+        {
+        "id": "Application",
+        "path": "Application",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Application",
+          "min": 0,
+          "max": "*"
+        },
+        "constraint": [
+          {
+            "key": "dom-2",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+            "expression": "contained.contained.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-4",
+            "severity": "error",
+            "human": "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+            "expression": "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-3",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+            "expression": "contained.where(((id.exists() and ('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url)))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(uri) = '#').exists()).not()).trace('unmatched', id).empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+                "valueBoolean": true
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+                "valueMarkdown": "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+              }
+            ],
+            "key": "dom-6",
+            "severity": "warning",
+            "human": "A resource should have narrative for robust management",
+            "expression": "text.`div`.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-5",
+            "severity": "error",
+            "human": "If a resource is contained in another resource, it SHALL NOT have a security label",
+            "expression": "contained.meta.security.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "Entity. Role, or Act"
+          }
+        ]
+      },
+      {
+        "id": "Application.identifier",
+        "path": "Application.identifier",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.identifier",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "Identifier"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.name",
+        "path": "Application.name",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.name",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.ownerCluster",
+        "path": "Application.ownerCluster",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.ownerCluster",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.domain",
+        "path": "Application.domain",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.domain",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.subdomain",
+        "path": "Application.subdomain",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.subdomain",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.systemId",
+        "path": "Application.systemId",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.systemId",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.criticality",
+        "path": "Application.criticality",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.criticality",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.internetFacing",
+        "path": "Application.internetFacing",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.internetFacing",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "boolean"
+          }            ],
+        "isModifier": false
+        }
+          ]
+         },
+  "snapshot": {
+      "element": [
+
+        {
+        "id": "Application",
+        "path": "Application",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Application",
+          "min": 0,
+          "max": "*"
+        },
+        "constraint": [
+          {
+            "key": "dom-2",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+            "expression": "contained.contained.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-4",
+            "severity": "error",
+            "human": "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+            "expression": "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-3",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+            "expression": "contained.where(((id.exists() and ('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url)))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists() or descendants().where(as(uri) = '#').exists()).not()).trace('unmatched', id).empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+                "valueBoolean": true
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+                "valueMarkdown": "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+              }
+            ],
+            "key": "dom-6",
+            "severity": "warning",
+            "human": "A resource should have narrative for robust management",
+            "expression": "text.`div`.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-5",
+            "severity": "error",
+            "human": "If a resource is contained in another resource, it SHALL NOT have a security label",
+            "expression": "contained.meta.security.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "Entity. Role, or Act"
+          }
+        ]
+      },
+      {
+        "id": "Application.id",
+        "path": "Application.id",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.id",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+                "valueString": "id"
+              }
+            ],
+            "code": "http://hl7.org/fhirpath/System.String"
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Application.meta",
+        "path": "Application.meta",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.meta",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Meta"
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Application.implicitRules",
+        "path": "Application.implicitRules",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.implicitRules",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "isModifier": true
+      },
+      {
+        "id": "Application.language",
+        "path": "Application.language",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.language",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Application.text",
+        "path": "Application.text",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "DomainResource.text",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Narrative"
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Application.contained",
+        "path": "Application.contained",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.contained",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Resource"
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Application.extension",
+        "path": "Application.extension",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "isModifier": false
+      },
+      {
+        "id": "Application.modifierExtension",
+        "path": "Application.modifierExtension",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.modifierExtension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "isModifier": true
+      },
+      {
+        "id": "Application.identifier",
+        "path": "Application.identifier",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.identifier",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "Identifier"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.name",
+        "path": "Application.name",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.name",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.ownerCluster",
+        "path": "Application.ownerCluster",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.ownerCluster",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.domain",
+        "path": "Application.domain",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.domain",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.subdomain",
+        "path": "Application.subdomain",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.subdomain",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.systemId",
+        "path": "Application.systemId",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.systemId",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.criticality",
+        "path": "Application.criticality",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.criticality",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "string"
+          }            ],
+        "isModifier": false
+        },
+      {
+        "id": "Application.internetFacing",
+        "path": "Application.internetFacing",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Application.internetFacing",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+
+          {
+            "code": "boolean"
+          }            ],
+        "isModifier": false
+        }
+          ]
+         }
+}
+
